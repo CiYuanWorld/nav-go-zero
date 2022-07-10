@@ -6,4 +6,14 @@ type PingReq struct {
 
 type PingRes struct {
 	Message string `json:"message"`
+	Time    string `json:"time"`
+}
+
+type UserInfoReq struct {
+}
+
+type UserInfoRes struct {
+	UUID     string `json:"uuid"`
+	Username string `json:"username"`
+	Nickname string `json:"nickname"`
 }

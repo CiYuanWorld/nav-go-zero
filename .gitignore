@@ -13,10 +13,10 @@
 .DS_Store
 **/.DS_Store
 
-#部署相关
-#deploy data
-data/*
-!data/.gitkeep
+#--项目相关
+tmp/*
+!tmp/.gitkeep
 
+#--部署相关
 #gitlab ci
 .cache

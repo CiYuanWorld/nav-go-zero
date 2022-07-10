@@ -2,7 +2,10 @@ module navapp
 
 go 1.18
 
-require github.com/zeromicro/go-zero v1.3.5
+require (
+	github.com/golang-module/carbon/v2 v2.1.8
+	github.com/zeromicro/go-zero v1.3.5
+)
 
 require (
 	github.com/beorn7/perks v1.0.1 // indirect

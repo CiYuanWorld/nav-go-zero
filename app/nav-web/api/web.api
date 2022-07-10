@@ -2,9 +2,21 @@ type (
 	PingReq struct{}
 	PingRes {
 		Message string `json:"message"`
+		Time    string `json:"time"`
 	}
 )
-service ping {
+type (
+	UserInfoReq struct{}
+	UserInfoRes {
+		UUID     string `json:"uuid"`
+		Username string `json:"username"`
+		Nickname string `json:"nickname"`
+	}
+)
+service web {
 	@handler ping
 	get /ping (PingReq) returns (PingRes)
+	
+	@handler userInfo
+	get /api/user/info (UserInfoReq) returns (UserInfoRes)
 }
