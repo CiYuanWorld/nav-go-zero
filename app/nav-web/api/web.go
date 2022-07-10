@@ -4,15 +4,15 @@ import (
 	"flag"
 	"fmt"
 
-	"nav-go-zero/app/greet/internal/config"
-	"nav-go-zero/app/greet/internal/handler"
-	"nav-go-zero/app/greet/internal/svc"
+	"navapp/app/nav-web/api/internal/config"
+	"navapp/app/nav-web/api/internal/handler"
+	"navapp/app/nav-web/api/internal/svc"
 
 	"github.com/zeromicro/go-zero/core/conf"
 	"github.com/zeromicro/go-zero/rest"
 )
 
-var configFile = flag.String("f", "etc/greet-api.yaml", "the config file")
+var configFile = flag.String("f", "etc/web.yaml", "the config file")
 
 func main() {
 	flag.Parse()

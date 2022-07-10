@@ -1,18 +1,22 @@
-# idea
+#--编辑器相关
+#idea
 .idea
 .idea/
 *.iml
-.DS_Store
-**/.DS_Store
-
-#deploy data
-
-data/*
-!data/.gitkeep
-
-# gitlab ci
-.cache
 
 #vscode
 .vscode
 .vscode/
+
+#--系统相关
+#macos
+.DS_Store
+**/.DS_Store
+
+#部署相关
+#deploy data
+data/*
+!data/.gitkeep
+
+#gitlab ci
+.cache

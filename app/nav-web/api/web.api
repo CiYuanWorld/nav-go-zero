@@ -1,0 +1,10 @@
+type (
+	PingReq struct{}
+	PingRes {
+		Message string `json:"message"`
+	}
+)
+service ping {
+	@handler ping
+	get /ping (PingReq) returns (PingRes)
+}

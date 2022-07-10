@@ -1,7 +1,7 @@
 package svc
 
 import (
-	"nav-go-zero/app/greet/internal/config"
+	"navapp/app/nav-web/api/internal/config"
 )
 
 type ServiceContext struct {
