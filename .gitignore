@@ -1,4 +1,4 @@
-#--编辑器相关
+#【编辑器相关】
 #idea
 .idea
 .idea/
@@ -8,15 +8,15 @@
 .vscode
 .vscode/
 
-#--系统相关
+#【系统相关】
 #macos
 .DS_Store
 **/.DS_Store
 
-#--项目相关
+#【项目相关】
 tmp/*
 !tmp/.gitkeep
 
-#--部署相关
+#【部署相关】
 #gitlab ci
 .cache

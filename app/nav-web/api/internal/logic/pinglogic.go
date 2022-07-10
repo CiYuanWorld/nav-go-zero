@@ -3,8 +3,8 @@ package logic
 import (
 	"context"
 
-	"navapp/app/nav-web/api/internal/svc"
-	"navapp/app/nav-web/api/internal/types"
+	"nav-go-zero/app/nav-web/api/internal/svc"
+	"nav-go-zero/app/nav-web/api/internal/types"
 
 	"github.com/golang-module/carbon/v2"
 	"github.com/zeromicro/go-zero/core/logx"

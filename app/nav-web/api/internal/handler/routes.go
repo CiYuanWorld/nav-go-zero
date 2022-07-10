@@ -4,7 +4,7 @@ package handler
 import (
 	"net/http"
 
-	"navapp/app/nav-web/api/internal/svc"
+	"nav-go-zero/app/nav-web/api/internal/svc"
 
 	"github.com/zeromicro/go-zero/rest"
 )

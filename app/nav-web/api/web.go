@@ -4,9 +4,9 @@ import (
 	"flag"
 	"fmt"
 
-	"navapp/app/nav-web/api/internal/config"
-	"navapp/app/nav-web/api/internal/handler"
-	"navapp/app/nav-web/api/internal/svc"
+	"nav-go-zero/app/nav-web/api/internal/config"
+	"nav-go-zero/app/nav-web/api/internal/handler"
+	"nav-go-zero/app/nav-web/api/internal/svc"
 
 	"github.com/zeromicro/go-zero/core/conf"
 	"github.com/zeromicro/go-zero/rest"

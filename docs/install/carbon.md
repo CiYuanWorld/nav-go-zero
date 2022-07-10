@@ -4,7 +4,7 @@ A simple, semantic and developer-friendly golang package for datetime
 ## 文档地址
 https://github.com/golang-module/carbon
 
-## 安装
+## 引入
 ```
 go get -u github.com/golang-module/carbon/v2
 import (

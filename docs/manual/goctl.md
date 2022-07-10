@@ -1,6 +1,12 @@
 ## 综合
 goctl api go -h
 
+## 运行相关服务
+```bash
+进入相关目录后，执行
+go run web.go -f etc/web.yaml
+```
+
 ## 生成api服务
 ```bash
 进入相关目录后，执行
@@ -10,10 +16,17 @@ goctl api go -api web.api -dir .
 goctl api go -api web.api -dir .
 ```
 
-## 运行相关服务
+## 生成rpc服务
 ```bash
 进入相关目录后，执行
-go run web.go -f etc/web.yaml
+goctl rpc protoc user.proto --go_out=./types --go-grpc_out=./types --zrpc_out=.
+```
+
+## 生成model文件
+```bash
+进入相关目录后，执行
+
+goctl rpc protoc user.proto --go_out=./types --go-grpc_out=./types --zrpc_out=.
 ```
 
 ## 修改本地模板文件

@@ -3,10 +3,11 @@ package handler
 import (
 	"net/http"
 
+	"nav-go-zero/app/nav-web/api/internal/logic"
+	"nav-go-zero/app/nav-web/api/internal/svc"
+	"nav-go-zero/app/nav-web/api/internal/types"
+
 	"github.com/zeromicro/go-zero/rest/httpx"
-	"navapp/app/nav-web/api/internal/logic"
-	"navapp/app/nav-web/api/internal/svc"
-	"navapp/app/nav-web/api/internal/types"
 )
 
 func userInfoHandler(svcCtx *svc.ServiceContext) http.HandlerFunc {
