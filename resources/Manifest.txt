@@ -1,0 +1,25 @@
+# Jaeger
+http://localhost:16686/
+
+# Elasticsearch
+http://localhost:9200/
+
+# Kibana
+http://localhost:5601/app/home#/
+
+# Prometheus
+http://localhost:9090/graph
+
+# Grafana admin@admin
+http://localhost:3001/
+
+# Api
+http://localhost:11001/auth/getToken
+http://localhost:11001/api/user/info
+
+# Apis
+http://localhost:11011/metrics
+
+# Github
+https://github.com/wu2kong
+https://github.com/XinCiYuan

@@ -14,3 +14,7 @@ Telemetry:
 Auth:
   AccessSecret: wu2kong001
   AccessExpire: 3600
+Prometheus:
+  Host: 0.0.0.0
+  Port: 11011
+  Path: /metrics

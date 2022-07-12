@@ -1,0 +1,44 @@
+version: "3.9"
+
+networks:
+  navapp_net:
+    driver: bridge
+    ipam:
+      config:
+        - subnet: 172.20.0.0/16
+
+services:
+  # 搜集kafka业务日志、存储prometheus监控数据 - Kafka for collecting business logs and storing Prometheus monitoring data
+  elasticsearch:
+    image: docker.elastic.co/elasticsearch/elasticsearch:7.17.5
+    container_name: elasticsearch
+    user: root
+    environment:
+      - discovery.type=single-node
+      - "ES_JAVA_OPTS=-Xms512m -Xmx512m"
+      - TZ=Asia/Shanghai
+    volumes:
+      - ../../var/data/elasticsearch/data:/usr/share/elasticsearch/data
+    restart: always
+    ports:
+    - 9200:9200
+    - 9300:9300
+    networks:
+      - navapp_net
+    # network_mode: "host"
+  
+  #查看elasticsearch数据 - Kibana to view Elasticsearch data
+  kibana:
+    image: docker.elastic.co/kibana/kibana:7.17.5
+    container_name: kibana
+    environment:
+      - elasticsearch.hosts=http://elasticsearch:9200
+      - TZ=Asia/Shanghai
+    restart: always
+    ports:
+      - "5601:5601"
+    networks:
+      - navapp_net
+    # network_mode: "host"
+    depends_on:
+      - elasticsearch

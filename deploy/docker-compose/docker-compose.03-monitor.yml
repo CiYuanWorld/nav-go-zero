@@ -1,0 +1,50 @@
+version: "3.9"
+
+# networks:
+#   navapp_net:
+#     driver: bridge
+#     ipam:
+#       config:
+#         - subnet: 172.20.0.0/16
+
+services:
+  #查看prometheus监控数据 - Grafana to view Prometheus monitoring data
+  grafana:
+    image: grafana/grafana:8.0.6
+    container_name: grafana
+    hostname: grafana
+    user: root
+    environment:
+      # 时区上海 - Time zone Shanghai (Change if needed)
+      TZ: Asia/Shanghai
+    restart: always
+    volumes:
+      - ../../var/data/grafana/data:/var/lib/grafana
+    ports:
+      - "3001:3000"
+    # networks:
+    #   - navapp_net
+    # network_mode: "host"
+    network_mode: "bridge"
+
+  #prometheus监控 — Prometheus for monitoring
+  prometheus:
+    image: prom/prometheus:v2.28.1
+    container_name: prometheus
+    environment:
+      # 时区上海 - Time zone Shanghai (Change if needed)
+      TZ: Asia/Shanghai
+    volumes:
+      - ../../conf/prometheus/prometheus.yml:/etc/prometheus/prometheus.yml
+      - ../../var/data/prometheus/data:/prometheus
+    command:
+      - '--config.file=/etc/prometheus/prometheus.yml'
+      - '--storage.tsdb.path=/prometheus'
+    restart: always
+    user: root
+    ports:
+      - 9090:9090
+    # networks:
+    #   - navapp_net
+    # network_mode: "host"
+    network_mode: "bridge"
