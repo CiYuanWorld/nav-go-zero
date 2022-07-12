@@ -25,8 +25,9 @@ goctl rpc protoc user.proto --go_out=./types --go-grpc_out=./types --zrpc_out=.
 ## 生成model文件
 ```bash
 进入相关目录后，执行
-
-goctl rpc protoc user.proto --go_out=./types --go-grpc_out=./types --zrpc_out=.
+ -c --cache
+goctl model mysql ddl -src ../../../../db/t_user.sql -dir .
+goctl model mysql datasource -url="root@tcp(127.0.0.1:3306)/navapp" -table="t_link" -dir .
 ```
 
 ## 修改本地模板文件

@@ -6,3 +6,11 @@ UserRpc:
     Hosts:
     - 127.0.0.1:2379
     Key: user.rpc
+Telemetry:
+  Name: web.api
+  Endpoint: http://localhost:14268/api/traces
+  Sampler: 1.0
+  Batcher: jaeger
+Auth:
+  AccessSecret: wu2kong001
+  AccessExpire: 3600

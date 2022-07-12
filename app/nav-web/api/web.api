@@ -1,3 +1,12 @@
+syntax = "v1"
+
+import (
+	"auth.api"
+)
+info(
+	author: "wu2kong"
+)
+
 type (
 	PingReq struct{}
 	PingRes {
@@ -13,10 +22,16 @@ type (
 		Nickname string `json:"nickname"`
 	}
 )
+
 service web {
 	@handler ping
 	get /ping (PingReq) returns (PingRes)
-	
+}
+
+@server(
+	jwt: Auth
+)
+service web {
 	@handler userInfo
 	get /api/user/info (UserInfoReq) returns (UserInfoRes)
 }

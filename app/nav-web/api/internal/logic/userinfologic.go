@@ -2,7 +2,6 @@ package logic
 
 import (
 	"context"
-	"errors"
 	"nav-go-zero/app/services/user/rpc/user"
 
 	"nav-go-zero/app/nav-web/api/internal/svc"
@@ -31,10 +30,6 @@ func (l *UserInfoLogic) UserInfo(req *types.UserInfoReq) (resp *types.UserInfoRe
 	})
 	if err != nil {
 		return nil, err
-	}
-
-	if user.Username != "test" {
-		return nil, errors.New("用户不存在")
 	}
 
 	resp = &types.UserInfoRes{

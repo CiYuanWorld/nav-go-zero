@@ -4,6 +4,7 @@ package handler
 import (
 	"net/http"
 
+	auth "nav-go-zero/app/nav-web/api/internal/handler/auth"
 	"nav-go-zero/app/nav-web/api/internal/svc"
 
 	"github.com/zeromicro/go-zero/rest"
@@ -17,10 +18,26 @@ func RegisterHandlers(server *rest.Server, serverCtx *svc.ServiceContext) {
 				Path:    "/ping",
 				Handler: pingHandler(serverCtx),
 			},
+		},
+	)
+
+	server.AddRoutes(
+		[]rest.Route{
 			{
 				Method:  http.MethodGet,
 				Path:    "/api/user/info",
 				Handler: userInfoHandler(serverCtx),
+			},
+		},
+		rest.WithJwt(serverCtx.Config.Auth.AccessSecret),
+	)
+
+	server.AddRoutes(
+		[]rest.Route{
+			{
+				Method:  http.MethodGet,
+				Path:    "/auth/getToken",
+				Handler: auth.GetTokenHandler(serverCtx),
 			},
 		},
 	)

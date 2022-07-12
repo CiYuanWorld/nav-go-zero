@@ -17,3 +17,10 @@ type UserInfoRes struct {
 	Username string `json:"username"`
 	Nickname string `json:"nickname"`
 }
+
+type GetTokenReq struct {
+}
+
+type GetTokenRes struct {
+	Token string `json:"uuid"`
+}

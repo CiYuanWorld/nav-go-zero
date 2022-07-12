@@ -4,7 +4,7 @@
 DROP TABLE IF EXISTS `t_user`;
 CREATE TABLE `t_user` (
     `id` bigint NOT NULL AUTO_INCREMENT,
-    `uuid` char(36) NOT NULL COMMENT 'UUID',
+    `uuid` char(36) NOT NULL DEFAULT '' COMMENT 'UUID',
     `username` varchar(255) NOT NULL DEFAULT '' COMMENT '用户名',
     `nickname` varchar(255) NOT NULL DEFAULT '' COMMENT '昵称',
     `avatar` varchar(255) NOT NULL DEFAULT '' COMMENT '头像地址',
@@ -18,3 +18,6 @@ CREATE TABLE `t_user` (
     UNIQUE KEY `uni_username` (`username`),
     KEY `idx_status` (`status`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE utf8mb4_general_ci COMMENT='基础用户表';
+
+INSERT INTO `t_user` (uuid, username, nickname, avatar, intro) VALUES
+('77bfd2d3-91d2-4c25-a3cc-0b3f33f51bf9', 'wu2kong', '悟二空', '', '多读书，多运动，多交友');

@@ -1,0 +1,21 @@
+syntax = "v1"
+
+info(
+    author: "wu2kong"
+)
+
+type (
+	GetTokenReq struct{}
+	GetTokenRes struct{
+        Token string `json:"uuid"`
+    }
+)
+
+@server(
+    group: auth
+)
+service web {
+    @doc "auth"
+	@handler getToken
+	get /auth/getToken (GetTokenReq) returns (GetTokenRes)
+}

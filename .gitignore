@@ -16,6 +16,12 @@
 #【项目相关】
 tmp/*
 !tmp/.gitkeep
+data/*
+!data/.gitkeep
+var/tmp/*
+!var/tmp/.gitkeep
+var/data/*
+!var/data/.gitkeep
 
 #【部署相关】
 #gitlab ci
