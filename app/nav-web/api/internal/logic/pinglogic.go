@@ -25,9 +25,8 @@ func NewPingLogic(ctx context.Context, svcCtx *svc.ServiceContext) *PingLogic {
 }
 
 func (l *PingLogic) Ping(req *types.PingReq) (resp *types.PingRes, err error) {
-	resp = &types.PingRes{
+	return &types.PingRes{
 		Message: "pong",
 		Time:    carbon.Now().ToDateTimeString(),
-	}
-	return
+	}, nil
 }

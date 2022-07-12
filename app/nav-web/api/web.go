@@ -3,14 +3,17 @@ package main
 import (
 	"flag"
 	"fmt"
+	"net/http"
 
 	"nav-go-zero/app/nav-web/api/internal/config"
 	"nav-go-zero/app/nav-web/api/internal/handler"
 	"nav-go-zero/app/nav-web/api/internal/svc"
+	"nav-go-zero/app/pkg/errorx"
 	"nav-go-zero/pkg/middleware/cors"
 
 	"github.com/zeromicro/go-zero/core/conf"
 	"github.com/zeromicro/go-zero/rest"
+	"github.com/zeromicro/go-zero/rest/httpx"
 )
 
 var configFile = flag.String("f", "etc/web.yaml", "the config file")
@@ -33,6 +36,16 @@ func main() {
 
 	// 跨域配置：添加跨域请求配置
 	server.Use(cors.Handle)
+
+	// 自定义错误
+	httpx.SetErrorHandler(func(err error) (int, interface{}) {
+		switch e := err.(type) {
+		case *errorx.CodeError:
+			return http.StatusOK, e.Data()
+		default:
+			return http.StatusInternalServerError, nil
+		}
+	})
 
 	fmt.Printf("Starting server at %s:%d...\n", c.Host, c.Port)
 	server.Start()

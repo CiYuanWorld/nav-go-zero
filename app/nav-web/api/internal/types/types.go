@@ -10,6 +10,7 @@ type PingRes struct {
 }
 
 type UserInfoReq struct {
+	UUID string `form:"uuid,optional"`
 }
 
 type UserInfoRes struct {

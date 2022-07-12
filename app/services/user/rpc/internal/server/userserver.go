@@ -26,3 +26,8 @@ func (s *UserServer) GetUser(ctx context.Context, in *user.IdRequest) (*user.Use
 	l := logic.NewGetUserLogic(ctx, s.svcCtx)
 	return l.GetUser(in)
 }
+
+func (s *UserServer) GetUserByUUID(ctx context.Context, in *user.UUIDRequest) (*user.UserResponse, error) {
+	l := logic.NewGetUserByUUIDLogic(ctx, s.svcCtx)
+	return l.GetUserByUUID(in)
+}

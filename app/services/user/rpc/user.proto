@@ -7,7 +7,9 @@ option go_package = "./user";
 message IdRequest {
     string id = 1;
 }
-  
+message UUIDRequest {
+    string uuid = 1;
+}
 message UserResponse {
     // 用户id
     string id = 1;
@@ -19,4 +21,5 @@ message UserResponse {
   
 service User {
     rpc getUser(IdRequest) returns(UserResponse);
+    rpc getUserByUUID(UUIDRequest) returns(UserResponse);
 }

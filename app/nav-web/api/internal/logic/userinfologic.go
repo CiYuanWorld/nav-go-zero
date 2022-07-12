@@ -25,16 +25,27 @@ func NewUserInfoLogic(ctx context.Context, svcCtx *svc.ServiceContext) *UserInfo
 }
 
 func (l *UserInfoLogic) UserInfo(req *types.UserInfoReq) (resp *types.UserInfoRes, err error) {
-	user, err := l.svcCtx.UserRpc.GetUser(l.ctx, &user.IdRequest{
-		Id: "1",
-	})
-	if err != nil {
-		return nil, err
+	uuid := req.UUID
+	var userRes *user.UserResponse
+	if uuid != "" {
+		userRes, err = l.svcCtx.UserRpc.GetUserByUUID(l.ctx, &user.UUIDRequest{
+			Uuid: uuid,
+		})
+		if err != nil {
+			return nil, err
+		}
+	} else {
+		userRes, err = l.svcCtx.UserRpc.GetUser(l.ctx, &user.IdRequest{
+			Id: "1",
+		})
+		if err != nil {
+			return nil, err
+		}
 	}
 
 	resp = &types.UserInfoRes{
-		UUID:     "",
-		Username: user.Username,
+		UUID:     userRes.GetUsername(),
+		Username: userRes.Username,
 		Nickname: "",
 	}
 	return
