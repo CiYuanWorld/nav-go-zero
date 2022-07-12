@@ -19,4 +19,7 @@
 
 待研究：
 
+https://github.com/go-gorm/gen
+go:embed 打包静态资源包
+
 待引入：
