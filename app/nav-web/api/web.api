@@ -34,6 +34,7 @@ service web {
 	jwt: Auth
 )
 service web {
+	@doc "获取用户信息"
 	@handler userInfo
 	get /api/user/info (UserInfoReq) returns (UserInfoRes)
 }
