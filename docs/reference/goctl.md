@@ -36,3 +36,10 @@ cd ~/.goctl
 goctl template init
 然后编辑对应的文件即可
 ```
+
+## 生成dockerfile
+goctl docker --go app/nav-web/api/web.go
+docker build -f Dockerfile -t navapp-webapi:latest .
+
+## 生成kubernets配置文件
+goctl kube deploy -name web-api -namespace navapp -port 11001 -o web-api.yaml
